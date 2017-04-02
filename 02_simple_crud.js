@@ -71,41 +71,39 @@ var alertDialog = function() {
  return driver.switchTo().alert();
 }
  
-var ALUNOS_URL = ROOT_URL + 'alunos';
-var ALUNOS_TITLE = 'Alunos';
-var ALUNO_TITLE = 'Aluno';
+var LIST_URL = ROOT_URL + 'books';
+var PLURAL_TITLE = 'Books';
+var SINGULAR_TITLE = 'Book';
 
+listingPage(LIST_URL, PLURAL_TITLE, "Name", "Author");
 
-listingPage(ALUNOS_URL, ALUNOS_TITLE, "Nome", "Matricula");
-
-clickLink('New ' + ALUNO_TITLE, 'New ' + ALUNO_TITLE);
-checkForm("Nome", "aluno_nome", "Matricula", "aluno_matricula");
-
+clickLink('New ' + SINGULAR_TITLE, 'New ' + SINGULAR_TITLE);
+checkForm("Name", "book_name", "Author", "book_author");
 back();
 
-clickLink('New ' + ALUNO_TITLE, 'New ' + ALUNO_TITLE);
-fillForm("aluno_nome", "abc", "aluno_matricula", "123");
+clickLink('New ' + SINGULAR_TITLE, 'New ' + SINGULAR_TITLE);
+fillForm("book_name", "Book 1", "book_author", "Author 1");
 
-clickButton('Create ' + ALUNO_TITLE);
-message(ALUNO_TITLE + " was successfully created.");
-show("Nome", "abc", "Matricula", "123");
+clickButton('Create ' + SINGULAR_TITLE);
+message(SINGULAR_TITLE + " was successfully created.");
+show("Name", "Book 1", "Author", "Author 1");
 back();
 
 clickLink('Show');
-show("Nome", "abc", "Matricula", "123");
+show("Name", "Book 1", "Author", "Author 1");
 
-clickLink('Edit', 'Editing ' + ALUNO_TITLE);
-checkForm("Nome", "aluno_nome", "Matricula", "aluno_matricula");
+clickLink('Edit', 'Editing ' + SINGULAR_TITLE);
+checkForm("Name", "book_name", "Author", "book_author");
 back();
 
-clickLink('Edit', 'Editing ' + ALUNO_TITLE);
-fillForm("aluno_nome", "def", "aluno_matricula", "456");
+clickLink('Edit', 'Editing ' + SINGULAR_TITLE);
+fillForm("book_name", "Book 2", "book_author", "Author 2");
 
-clickButton('Update ' + ALUNO_TITLE);
-message(ALUNO_TITLE + " was successfully updated.");
-show("Nome", "def", "Matricula", "456");
+clickButton('Update ' + SINGULAR_TITLE);
+message(SINGULAR_TITLE + " was successfully updated.");
+show("Name", "Book 2", "Author", "Author 2");
 
-clickLink('Edit', 'Editing ' + ALUNO_TITLE);
+clickLink('Edit', 'Editing ' + SINGULAR_TITLE);
 
 clickLink('Show');
 
@@ -113,6 +111,6 @@ back();
 
 clickLink('Destroy');
 alertDialog().accept();
-message(ALUNO_TITLE + " was successfully destroyed.");
+message(SINGULAR_TITLE + " was successfully destroyed.");
 
 driver.quit();
