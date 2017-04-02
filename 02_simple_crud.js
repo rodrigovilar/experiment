@@ -32,7 +32,7 @@ var checkForm = function () {
 
 var listingPage = function (url, title) {
   driver.get(url);
-  waitFor(By.xpath('//h1[text()="Listing ' + title + '"]'), 3000, 'Listing ' + title + ' Title not found');
+  waitFor(By.xpath('//h1[text()="' + title + '"]'), 3000, title + ' Title not found');
   for(var i = 2; i < arguments.length; i++) {
     waitFor(By.xpath('//th[text()="' + arguments[i] + '"]'), 3000, arguments[i] + ' Heading not found');
   }
