@@ -4,7 +4,7 @@ var webdriver = require('selenium-webdriver'),
 
 var driver = new webdriver.Builder().build();
 var ROOT_URL = 'http://localhost:3000/';
-var CLICK_DELAY = 100;
+var CLICK_DELAY = 500;
 
 var waitFor = function (condition, timeout, message) {
   driver.wait(until.elementLocated(condition), timeout, message);
@@ -39,6 +39,7 @@ var listingPage = function (url, title) {
 }
 
 var back = function () {
+  driver.sleep(CLICK_DELAY);
   find(By.xpath('//a[text()="Back"]')).click();
   driver.sleep(CLICK_DELAY);
 }
